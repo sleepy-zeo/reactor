@@ -14,3 +14,5 @@ add_subdirectory(single-reactor-single-thread/example)
 
 add_subdirectory(single-reactor-multi-threads)
 add_subdirectory(single-reactor-multi-threads/example)
+
+add_subdirectory(multi-reactors-multi-threads)
