@@ -38,22 +38,6 @@ void net::srmt::Acceptor::listen() {
     this->m_acceptChannel->enableReading();
 }
 
-class A {
-public:
-    A() {
-        ACSDK_DEBUG(LX("AAA"));
-        year = 2020;
-    }
-    ~A() {
-        ACSDK_DEBUG(LX("~AAA"));
-        year = 0;
-    }
-    const void print() const {
-        ACSDK_DEBUG(LX("print").d("year", year));
-    }
-    int year;
-};
-
 void net::srmt::Acceptor::handleRead() {
     sockaddr_in peer{};
     socklen_t peer_len = sizeof(peer);

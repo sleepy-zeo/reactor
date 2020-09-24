@@ -18,6 +18,7 @@ public:
     ~EventLoop() = default;
 
     void loop();
+    void quit();
 
     bool updateChannel(Channel* channel);
     bool removeChannel(Channel* channel);

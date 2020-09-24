@@ -13,26 +13,26 @@ namespace mrmt {
 class EventLoopThread {
 
 public:
-    EventLoopThread(std::string  name="");
+    explicit EventLoopThread(std::string name = "");
     ~EventLoopThread();
 
     void startLoop();
     void stopLoop();
 
+    std::shared_ptr<EventLoop> getEventLoop();
 
 private:
     void run();
 
-    bool m_stop;
-
-    bool m_running;
-    std::mutex m_runningMutex;
-    std::condition_variable m_runningCV;
+    bool m_started;
+    std::mutex m_startedMutex;
 
     std::string m_loopThreadName;
     std::unique_ptr<std::thread> m_thread;
-    std::unique_ptr<EventLoop> m_eventLoop;
 
+    std::mutex m_loopMutex;
+    std::condition_variable m_loopCV;
+    std::shared_ptr<EventLoop> m_eventLoop;
 };
 
 }  // namespace mrmt

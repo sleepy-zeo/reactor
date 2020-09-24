@@ -41,6 +41,10 @@ void net::mrmt::EventLoop::loop() {
     ACSDK_DEBUG0(LX(__func__).m("stop Looping...").d("eventLoop", this).d("threadId", std::this_thread::get_id()));
 }
 
+void net::mrmt::EventLoop::quit() {
+    m_quit = true;
+}
+
 bool net::mrmt::EventLoop::updateChannel(net::mrmt::Channel* channel) {
     return m_poller->updateChannel(channel);
 }
